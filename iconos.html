@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iconos · Calculadora</title>
+  <style>
+    :root { --amber: #ffb547; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 28px 24px 60px;
+      background: radial-gradient(120% 80% at 50% 0%, #241d17, #0f0c0a 70%);
+      color: #e8dccb;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    main { max-width: 640px; margin: 0 auto; }
+    .back {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-bottom: 22px;
+      padding: 8px 14px 8px 10px;
+      border-radius: 12px;
+      font-size: 13px; font-weight: 600;
+      color: #e8dccb; text-decoration: none;
+      background: linear-gradient(180deg, #3f3833, #2d2723);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 2px 0 #171311;
+      transition: filter 0.2s, transform 0.06s;
+    }
+    .back:hover { filter: brightness(1.12); }
+    .back:active { transform: translateY(1px); }
+    .back:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+    .eyebrow {
+      font: 600 11px/1 "SF Mono", ui-monospace, Menlo, monospace;
+      letter-spacing: 0.3em;
+      color: #ff9a3c;
+    }
+    h1 { margin: 10px 0 6px; font-size: 30px; font-weight: 600; letter-spacing: -0.01em; }
+    p.lead { margin: 0 0 32px; color: #b8a994; line-height: 1.5; }
+
+    .hero {
+      display: grid;
+      place-items: center;
+      padding: 36px 0;
+      border-radius: 24px;
+      background: linear-gradient(160deg, #2a2420, #1a1614);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.07), 0 20px 40px rgba(0,0,0,0.4);
+    }
+    .hero canvas { width: 128px; height: 128px; }
+
+    h2 {
+      margin: 36px 0 14px;
+      font: 600 11px/1 "SF Mono", ui-monospace, Menlo, monospace;
+      letter-spacing: 0.25em;
+      color: #8a7a62;
+    }
+
+    .sizes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .size {
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 10px;
+      padding: 18px 8px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      font: 500 12px/1 "SF Mono", ui-monospace, Menlo, monospace;
+      color: #8a7a62;
+    }
+
+    .bars { display: grid; gap: 12px; }
+    .bar {
+      display: flex; align-items: center; gap: 14px;
+      height: 44px; padding: 0 14px;
+      border-radius: 12px;
+      font-size: 13px;
+    }
+    .bar.light { background: #f1f3f4; color: #5f6368; }
+    .bar.dark  { background: #35363a; color: #bdc1c6; }
+    .bar .url { flex: 1; height: 28px; border-radius: 14px; background: rgba(127,127,127,0.18); }
+    .bar .slot { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; }
+    .bar.light .slot.me { background: rgba(0,0,0,0.06); }
+    .bar.dark .slot.me { background: rgba(255,255,255,0.1); }
+    .bar .dot { width: 16px; height: 16px; border-radius: 50%; background: rgba(127,127,127,0.4); }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 36px; }
+    button {
+      border: 0; cursor: pointer;
+      padding: 13px 20px;
+      border-radius: 14px;
+      font: 600 14px/1 -apple-system, BlinkMacSystemFont, sans-serif;
+      transition: transform 0.06s, filter 0.2s;
+    }
+    button:hover { filter: brightness(1.08); }
+    button:active { transform: translateY(1px); }
+    button:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+    .primary {
+      color: #fff;
+      background: linear-gradient(180deg, #ffa149, #e9701a);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), 0 3px 0 #8f3f08, 0 0 20px rgba(255,130,30,0.25);
+    }
+    .secondary {
+      color: #e8dccb;
+      background: linear-gradient(180deg, #3f3833, #2d2723);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 3px 0 #171311;
+    }
+    .hint { margin-top: 14px; font-size: 13px; color: #8a7a62; }
+
+    @media (max-width: 520px) {
+      body { padding: 20px 16px 40px; }
+      .sizes { grid-template-columns: repeat(2, 1fr); }
+      h1 { font-size: 25px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="./popup.html">← Volver a la calculadora</a>
+
+    <div class="eyebrow">CALCULADORA · ICONO</div>
+    <h1>El icono de tu calculadora</h1>
+    <p class="lead">El mismo aparato en miniatura: carcasa oscura, pantalla ámbar que brilla y la tecla naranja del «=».</p>
+
+    <div class="hero"><canvas id="hero" data-size="128"></canvas></div>
+
+    <h2>TAMAÑOS</h2>
+    <div class="sizes">
+      <div class="size"><canvas data-size="128" style="width:64px;height:64px"></canvas>128</div>
+      <div class="size"><canvas data-size="48"></canvas>48</div>
+      <div class="size"><canvas data-size="32"></canvas>32</div>
+      <div class="size"><canvas data-size="16"></canvas>16</div>
+    </div>
+
+    <h2>ASÍ SE VE EN LA BARRA DE CHROME</h2>
+    <div class="bars">
+      <div class="bar light">
+        <div class="url"></div>
+        <span class="dot"></span>
+        <span class="slot me"><canvas data-size="16"></canvas></span>
+        <span class="dot"></span>
+      </div>
+      <div class="bar dark">
+        <div class="url"></div>
+        <span class="dot"></span>
+        <span class="slot me"><canvas data-size="16"></canvas></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="primary" id="dlAll">Descargar iconos (16, 48 y 128)</button>
+      <button class="secondary" data-dl="128">Solo 128 px</button>
+    </div>
+    <p class="hint">Se guardan como icon16.png, icon48.png e icon128.png en tu carpeta de Descargas.</p>
+  </main>
+
+  <script src="./icon-draw.js"></script>
+  <script src="./iconos.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Calculadora",
+  "version": "0.2.0",
+  "description": "Una calculadora retro y elegante, siempre a un clic en tu navegador.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Calculadora"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Alt+Shift+C",
+        "mac": "MacCtrl+Shift+C"
+      },
+      "description": "Abrir la calculadora"
+    }
+  }
+}

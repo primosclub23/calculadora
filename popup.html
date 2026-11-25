@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Calculadora</title>
+  <link rel="stylesheet" href="./popup.css">
+</head>
+<body>
+  <main class="calc" id="calc">
+    <header class="top">
+      <a class="brand" href="./iconos.html" title="Ver el icono">CALCULADORA<span class="model">·66</span></a>
+      <div class="solar" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      <div class="tools">
+        <button class="tool" id="historyBtn" type="button" title="Historial (tecla H)" aria-label="Ver historial">
+          <span class="led"></span>
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M6 3h12v18l-2-1.5-2 1.5-2-1.5-2 1.5-2-1.5L6 21V3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8h6M9 12h6M9 16h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <button class="tool sound" id="soundBtn" type="button" title="Cambiar sonido (tecla S)" aria-label="Cambiar sonido">
+          <span class="led"></span>
+          <svg class="ico-on" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <svg class="ico-off" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <section class="display" id="display" title="Clic para copiar el resultado">
+      <div class="toast" id="toast">COPIADO</div>
+      <div class="expr" id="expr">&nbsp;</div>
+      <div class="value" id="value">0</div>
+    </section>
+
+    <div class="pad">
+      <section class="keys" id="keys">
+        <button class="key fn" data-action="clear" id="clearBtn" type="button">AC</button>
+        <button class="key fn" data-action="sign" type="button">±</button>
+        <button class="key fn" data-action="percent" type="button">%</button>
+        <button class="key op" data-op="/" type="button">÷</button>
+
+        <button class="key num" data-digit="7" type="button">7</button>
+        <button class="key num" data-digit="8" type="button">8</button>
+        <button class="key num" data-digit="9" type="button">9</button>
+        <button class="key op" data-op="*" type="button">×</button>
+
+        <button class="key num" data-digit="4" type="button">4</button>
+        <button class="key num" data-digit="5" type="button">5</button>
+        <button class="key num" data-digit="6" type="button">6</button>
+        <button class="key op" data-op="-" type="button">−</button>
+
+        <button class="key num" data-digit="1" type="button">1</button>
+        <button class="key num" data-digit="2" type="button">2</button>
+        <button class="key num" data-digit="3" type="button">3</button>
+        <button class="key op" data-op="+" type="button">+</button>
+
+        <button class="key num wide" data-digit="0" type="button">0</button>
+        <button class="key num" data-action="dot" type="button">,</button>
+        <button class="key eq" data-action="equals" type="button">=</button>
+      </section>
+
+      <aside class="tape" id="tape" aria-hidden="true">
+        <div class="tape-head">
+          <span>HISTORIAL</span>
+          <button class="tape-clear" id="tapeClear" type="button">Borrar</button>
+        </div>
+        <ol class="tape-list" id="tapeList"></ol>
+        <div class="tape-foot">Toca una línea para usar su resultado</div>
+      </aside>
+    </div>
+  </main>
+  <script src="./popup.js" type="module"></script>
+</body>
+</html>
