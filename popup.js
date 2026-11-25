@@ -15,6 +15,7 @@ const tapeClear = $('#tapeClear');
 
 const MAX_DIGITS = 12;
 const MAX_HISTORY = 30;
+const VALUE_FONT = 38; // tamaño máximo de las cifras en pantalla (debe coincidir con .value en popup.css)
 const SYM = { '+': '+', '-': '−', '*': '×', '/': '÷' };
 
 // ---------- Estado ----------
@@ -190,9 +191,9 @@ function backspace() {
 
 // ---------- Pantalla ----------
 function fitText() {
-  let size = 52;
+  let size = VALUE_FONT;
   valueEl.style.fontSize = size + 'px';
-  while (valueEl.scrollWidth > valueEl.clientWidth && size > 18) {
+  while (valueEl.scrollWidth > valueEl.clientWidth && size > 14) {
     size -= 2;
     valueEl.style.fontSize = size + 'px';
   }

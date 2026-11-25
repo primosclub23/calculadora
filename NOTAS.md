@@ -11,6 +11,12 @@ Extensión de Chrome (Manifest V3). Sin permisos especiales y sin código remoto
 - `background.js` — al instalar/arrancar dibuja el icono a 16 y 32 px con OffscreenCanvas y lo pone con `chrome.action.setIcon` (no necesita permisos).
 - `iconos.html` + `iconos.js` — página de herramienta: vista previa del icono (tamaños y barra de Chrome clara/oscura) y descarga de icon16/48/128.png. Tiene botón "← Volver a la calculadora" (enlace a popup.html).
 
+## Tamaño del popup (versión compacta)
+- Ancho 272 px (antes 380), unos 395 px de alto. Teclas de 42 px, pantalla de 78 px, cifras de 38 px.
+- Sin marco negro: body sin padding y con el mismo degradado que la carcasa, así la calculadora ocupa toda la ventanita.
+- Las ventanas emergentes de Chrome no pueden ser transparentes: las esquinas redondeadas exteriores las pone Chrome (en Mac la ventana ya sale redondeada).
+- `VALUE_FONT` en popup.js debe coincidir con el tamaño de `.value` en popup.css (ajuste automático del texto largo).
+
 ## Icono
 - Mini calculadora: carcasa oscura redondeada, pantalla oscura con "123" ámbar brillante y reflejo, 3×2 teclas (crema, gris, naranja "=").
 - Versiones simplificadas: <48 px pantalla ámbar sólida sin cifras; <24 px solo 2 teclas.
