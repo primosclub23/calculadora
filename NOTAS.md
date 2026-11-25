@@ -14,7 +14,7 @@ Extensión de Chrome (Manifest V3). Sin permisos especiales y sin código remoto
 ## Tamaño del popup (versión compacta)
 - Ancho 272 px (antes 380), unos 395 px de alto. Teclas de 42 px, pantalla de 78 px, cifras de 38 px.
 - Sin marco negro: body sin padding y con el mismo degradado que la carcasa, así la calculadora ocupa toda la ventanita.
-- Las ventanas emergentes de Chrome no pueden ser transparentes: las esquinas redondeadas exteriores las pone Chrome (en Mac la ventana ya sale redondeada).
+- Las ventanas emergentes de Chrome no pueden ser transparentes: el borde fino claro y las esquinas de la ventana los pone Chrome y no se pueden cambiar. Decidido: se queda así, sin marco negro.
 - `VALUE_FONT` en popup.js debe coincidir con el tamaño de `.value` en popup.css (ajuste automático del texto largo).
 
 ## Icono
